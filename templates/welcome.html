@@ -1,0 +1,119 @@
+{% extends "base.html" %} {% block content %}
+
+<style>
+	img {
+		border-radius: 6%;
+	}
+
+	a {
+		text-decoration: none !important;
+	}
+
+	#welcomeimage {
+		width: 100%;
+		margin-top: -1.8em;
+	}
+
+	#login-btn , #get-started{
+		color: white !important;
+		background-color: #ad2a54 !important;
+	}
+
+	#loginlink,
+	#signuplink {
+		margin-left: 1.2em;
+	}
+
+	#signup-btn {
+		color: white;
+		background-color: #303030;
+	}
+
+	#login-btn:hover , #get-started:hover{
+		background-color: #811b3b !important;
+	}
+
+	#signup-btn:hover {
+		background-color: #1f1f1f !important;
+	}
+
+	#extraline, #extraline-li {
+		font-size: 3vw;
+		color: #8a8a8a;
+		margin-top: 0em;
+	}
+
+	#extraline{
+		margin-left: 1em;
+	}
+
+	.welcome-text {
+		margin-top: 0.2em;
+		font-size: 4.6vw !important;
+		text-emphasis: 400;
+	}
+
+	#logged-in {
+		margin-top: -1.6em;
+		margin-left: 0.6em;
+		padding-bottom: 1em;
+	}
+</style>
+
+<div class="row" style="margin-top: 5.2em;">
+	<div class="col" style="width: 100%">
+		{% if user.is_authenticated %}
+			<h4 id="logged-in" style="margin-top: 0.2em;">logged in as 
+				<span> <strong> {{ user }} </strong>
+				</span>
+			</h4>
+		{% endif %}
+
+		<h1 class="welcome-text"> get the best price quotes for your
+			<span>used cars</span> </h1>
+	</div>
+
+	<div class="col">
+		<img src="https://pred-predictor.s3.ap-south-1.amazonaws.com/car.png" id="welcomeimage" draggable="false"
+			class="nrc">
+	</div>
+</div>
+
+<br>
+<hr>
+
+<div class="row" style="margin-top: 2.4em; margin-left: 3em;">
+	
+	{% if user.is_authenticated %}
+	<div class="col-5" style="margin-left: -2em;">
+		<p id="extraline-li"> start exploring right now! </p>
+	</div>
+
+	<div class="col-4" style="margin-left: -1em;">
+		<a href="/predict">
+			<button id="get-started" class="btn btn-lg">get started!</button>
+		</a>
+	</div>
+	{% endif %}
+
+	{% if not user.is_authenticated %}
+	<div class="col-1">
+		<a href="/login" id="login">
+			<button id="login-btn" class="btn btn-lg">login</button>
+		</a>
+	</div>
+
+	<div class="col-2">
+		<a href="/register" id="signuplink">
+			<button id="signup-btn" class="btn btn-lg">register</button>
+		</a>
+	</div>
+
+	<div class="col">
+		<p id="extraline"> start exploring right now! </p>
+	</div>
+	{% endif %}
+
+</div>
+
+{% endblock %}

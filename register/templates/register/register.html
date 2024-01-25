@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<style>
+	#signupBtn {
+		background-color: #ad2a54;
+		color: white;
+	}
+
+	#signupBtn:hover {
+		background-color: #811b3b;
+	}
+
+	#here{
+		color: #ad2a54;
+	}
+
+	#here:hover{
+		color: #811b3b;
+	}
+
+	#login-text {
+		font-size: 1.2em; 
+		margin-top: -1em; 
+		margin-bottom: 1.3em;
+	}
+
+	.text-muted{
+		font-size: 0.7em;
+	}
+
+	input{
+		color: white !important;
+		background-color: rgb(29, 29, 29) !important;
+		border-style: solid !important;
+		border-color: #131313 !important;
+		padding: 4px !important;
+		font-size: 1em !important;
+		/* width: 16em !important; */
+	}
+
+	input:focus {
+		outline: none !important;
+	}
+
+	label{
+		font-size: 0.9em;
+		margin-top: 0.4em;
+		margin-bottom: -0.08em;
+	}
+
+	li{
+		font-size: 0.8em;
+	}
+
+	.help-block{
+		font-size: 0.8em;
+		color: rgb(138, 138, 138);
+	}
+
+	.mockup {
+		text-align: center;
+	}
+
+	img {
+		width: 72%;
+		margin-top: 6em;
+	}
+
+</style>
+
+<div class="container" style="margin-top: 3em;">
+
+	<div class="row"> 
+		<div class="col-6">
+			<h1 class="heading">
+				<strong>sign-<span>up</span></strong>
+			</h1>
+
+			<br><br>
+			
+			<h1 style="margin-bottom: 1em; margin-top: -0.4em;">
+				get the best price quotes for your
+					<span>used cars</span> 
+			</h1>
+
+			<p id="login-text">
+				already have an account? login
+				<a href="/login" id="here">
+					<strong>here</strong>
+				</a>
+			</p>
+
+			<form method="POST" class="form-group" style="font-size: 26px;">
+				{% csrf_token %}
+
+				{{form|crispy}}
+
+				<div style="text-align: center;">
+					<button type="submit" id="signupBtn"
+						class="btn btn-lg"
+						style="margin-top: 0.8em;">
+						register
+					</button>
+				</div>
+			</form>
+
+		</div>
+
+		<div class="col mockup">
+			<img src="https://pred-predictor.s3.ap-south-1.amazonaws.com/mockup.JPEG" draggable="false">
+		</div>
+		
+	</div>
+	
+			
+</div>
+</div>
+{% endblock %}
