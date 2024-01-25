@@ -12,5 +12,4 @@ To run the Django application on localhost, the dependencies can be found in `re
 
 ---
 
-> This project was completed as part of the Capstone-2 Project at
-NIIT University by **[Team PREDIE](https://predie.herokuapp.com/team)**. <br>
+
